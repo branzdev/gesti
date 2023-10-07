@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 
-import UserAuthForm from "@/components/user-auth-form";
+import UserAuthForm from "@/components/UserAuthForm";
 
 export const metadata: Metadata = {
 	title: "Authentication",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AuthenticationPage() {
 	return (
-		<div className="container relative h-screen flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+		<div className="container relative h-[calc(100vh-56px)] flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0">
 			<div className="relative hidden h-full flex-col p-10 dark:border-r lg:flex justify-center items-center gap-y-20">
 				<Image
 					src="/undraw-medicine.svg"

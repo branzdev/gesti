@@ -50,10 +50,11 @@ export default function UserAuthForm({ className }: UserAuthFormProps) {
 						/>
 					</div>
 					<Button disabled={isLoading}>
+						<Link href="dashboard">Ingresar</Link>
+
 						{isLoading && (
 							<Icons.Spinner className="mr-2 h-4 w-4 animate-spin" />
 						)}
-						<Link href="dashboard">Ingresar</Link>
 					</Button>
 				</div>
 			</form>
