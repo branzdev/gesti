@@ -1,3 +1,32 @@
 {
-  "extends": "next/core-web-vitals"
+	// Need to add 'browser' and 'node' environments separately instead of using 'shared-node-browser' because
+	// of an issue when extending 'airbnb' or 'airbnb-base' that cause this environment to not be recognized.
+	// https://eslint.org/docs/latest/use/configure/language-options#specifying-environments
+	"env": { "browser": true, "es2024": true, "node": true },
+	"extends": [
+		"next/core-web-vitals",
+		"airbnb",
+		"airbnb/hooks",
+		"airbnb-typescript",
+		"prettier"
+	],
+	"parserOptions": {
+		"sourceType": "module",
+		// Need to add 'latest' because of an issue when extending 'airbnb' or 'airbnb-base' that cause
+		// the ecmaVersion to not update to the latest one specified on 'es2024' environment
+		// https://eslint.org/docs/latest/use/configure/language-options#specifying-parser-options
+		"ecmaVersion": "latest",
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		// Disabled this rule because in some React projects like Vite or Next.js,
+		// importing React explicitly is NOT required
+		"react/react-in-jsx-scope": "off"
+	},
+	"overrides": [
+		{
+			"extends": ["plugin:@typescript-eslint/disable-type-checked"],
+			"files": ["./**/*.js"]
+		}
+	]
 }
